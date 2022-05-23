@@ -137,3 +137,18 @@ pipeline {
 
 ![](images/jenkinsbranchmaintest5.png)
 
+- created 3 new stages - package, deploy, clean up 
+
+- ran the build on both feature and main branch
+
+- confirmed on my machine that the build ran the task it was supposed to
+
+![](images/jenkinsfilecleanup6.png)
+
+![](images/jenkinsfilecleanup66.png)
+
+![](images/jenkinsfilecleanupoceanbuild6.png)
+
+![](images/jenkinsfilecleanupmain6.png)
+
+![](images/jenkinsfilecleanuplsvar6.png)
