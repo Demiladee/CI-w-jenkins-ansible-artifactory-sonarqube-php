@@ -174,6 +174,18 @@ pipeline {
 
 - made necessary configurations to allow smooth running on jenkins and ansible
 
+- introduced parametization in jenkinsfile so the different env's can be executed without needing to manually change and update them
+
+```
+pipeline {
+    agent any
+
+    parameters {
+      string(name: 'inventory', defaultValue: 'dev',  description: 'This is the inventory file for the environment to deploy configuration')
+    }
+...
+```
+
 - ran the play on both feature and main branch
 
 ![](images/ansibleinstall7.png)
@@ -215,3 +227,4 @@ pipeline {
 ![](images/ansibleplaymain7.png)
 
 ![](images/ansibleplaymain77.png)
+
