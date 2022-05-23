@@ -228,3 +228,14 @@ pipeline {
 
 ![](images/ansibleplaymain77.png)
 
+![](images/jenkinsfileparameters8.png)
+
+![](images/jenkinsfileparameters88.png)
+
+![](images/jenkinsfileparametergui8.png)
+
+![](images/jenkinsfileparameterbuildansible8.png)
+
+![](images/jenkinsfileparameterbuild8.png)
+
+![](images/jenkinsfileparametermainbuild8.png)
