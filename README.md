@@ -1,1 +1,1 @@
-# CI-w-jenkins-ansible-artifactory-sonarqube-php
+# Continuous Integration with Jenkins | Ansible | Artifactory | SonarQube | PHP
