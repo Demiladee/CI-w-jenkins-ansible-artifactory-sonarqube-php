@@ -60,3 +60,80 @@ source ~/.bash_profile
 ![](images/jenkinsblueoceangithubsetup33.png)
 
 - created deploy directory in the repo and added started a new jenkinsfile in it
+
+- added some shell script to the file to trigger a build
+
+```
+pipeline {
+    agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+    }
+}
+```
+
+- configured jenkins to access the location of the jenkins file 
+
+![](images/jenkinsfile4.png)
+
+![](images/jenkinsbuild44.png)
+
+![](images/jenkinsbuild444.png)
+
+![](images/jenkinsbuild4444.png)
+
+![](images/blueocean444.png)
+
+![](images/blueoceanjenkinsbuild44444.png)
+
+- created a new git branch in the repo 
+
+- added test stage script in jenkins file under the branch to trigger a build
+
+- merged to test for the build under main 
+
+![](images/gitbranchfeature5.png)
+
+```
+ pipeline {
+    agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+    }
+}
+```
+
+![](images/gitpushfeature5.png)
+
+![](images/jenkinsbuild5.png)
+
+![](images/jenkinsbranch5.png)
+
+![](images/jenkinsbranch55.png)
+
+![](images/jenkinsbranch555.png)
+
+![](images/jenkinsbranchmaintest5.png)
+
