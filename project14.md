@@ -239,3 +239,223 @@ pipeline {
 ![](images/jenkinsfileparameterbuild8.png)
 
 ![](images/jenkinsfileparametermainbuild8.png)
+
+### ci/cd pipeline for todo application
+
+- cloned my php-todo.git repo
+
+- installed php, its dependencies and composer tool on jenkins server
+
+- installed ansible artifactory role
+
+- installed plot pugin and artifactory plugin on jenkins ui
+
+- configured artifactory on jenkins ui
+
+- created new jenkins file on todo repo
+
+- created multibranch pipeline on blue ocean
+
+- created database and database user on db server
+
+- updated database connectivity requirements
+
+- updated jenkinsfile with pipeline config
+
+```
+pipeline {
+    agent any
+
+  stages {
+
+     stage("Initial cleanup") {
+          steps {
+            dir("${WORKSPACE}") {
+              deleteDir()
+            }
+          }
+        }
+
+    stage('Checkout SCM') {
+      steps {
+            git branch: 'main', url: 'https://github.com/darey-devops/php-todo.git'
+      }
+    }
+
+    stage('Prepare Dependencies') {
+      steps {
+             sh 'mv .env.sample .env'
+             sh 'composer install'
+             sh 'php artisan migrate'
+             sh 'php artisan db:seed'
+             sh 'php artisan key:generate'
+      }
+    }
+  }
+}
+```
+
+- added unit test step to jenkinsfile
+
+```
+stage('Execute Unit Tests') {
+      steps {
+             sh './vendor/bin/phpunit'
+      } 
+```
+
+- added code analysis step to jenkins file. output will be stored in build/logs/phploc.csv
+
+```
+stage('Code Analysis') {
+  steps {
+        sh 'phploc app/ --log-csv build/logs/phploc.csv'
+
+  }
+}
+```
+
+- added plot script to jenkins file
+
+- bundled the application code into an artifact and uploaded it to artifactory
+
+```
+stage ('Package Artifact') {
+    steps {
+            sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
+     }
+    }
+```
+
+- published the resulted artifact into artifactory
+
+```
+stage ('Upload Artifact to Artifactory') {
+          steps {
+            script { 
+                 def server = Artifactory.server 'artifactory-server'                 
+                 def uploadSpec = """{
+                    "files": [
+                      {
+                       "pattern": "php-todo.zip",
+                       "target": "<name-of-artifact-repository>/php-todo",
+                       "props": "type=zip;status=ready"
+
+                       }
+                    ]
+                 }""" 
+
+                 server.upload spec: uploadSpec
+               }
+            }
+
+        }
+```
+
+- deployed the application to the dev env by launching the ansible pipeline
+
+```
+stage ('Deploy to Dev Environment') {
+    steps {
+    build job: 'ansible-project/main', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'dev']], propagate: false, wait: true
+    }
+  }
+```
+
+![](images/gitforkclone9.png)
+
+![](images/composerinstall9.png)
+
+![](images/phpdependencies9.png)
+
+![](images/phpdependencies99.png)
+
+![](images/phplocphptodoinstall9.png)
+
+![](images/phplocphptodoinstall99.png)
+
+![](images/artifactoryinstall9.png)
+
+![](images/jenkinsartifactoryconfig9.png)
+
+![](images/plotplugin9.png)
+
+![](images/phptodojenkinsfileplotplugin9.png)
+
+![](images/artifactorybuildparameterci9.png)
+
+![](images/artifactoryintegrationwithjenkinsfilephptodo9.png)
+
+![](images/artifactoryprivateipci9.png)
+
+![](images/artifactoryroleci9.png)
+
+![](images/artifactoryplaysiteyml9.png)
+
+![](images/jenkinsartifactorymysqlconf9.png)
+
+![](images/mysqlinstallonphptodo9.png)
+
+![](images/mysqlbindaddress9.png)
+
+![](images/mysqlbindaddress99.png)
+
+![](images/mysqlconnectionjenkinsserver9.png)
+
+![](images/mysqlshowdatabases9.png)
+
+![](images/mysqlbindaddress99.png)
+
+![](images/jenkinsfiledatabasehomestead9.png)
+
+![](images/staticassignmentsartifactoryyml9.png)
+
+![](images/playbookstodojob9.png)
+
+![](images/artifactoryansibleplay9.png)
+
+![](images/artifactory8082jfrog9.png)
+
+![](images/artifactorybuildparameterci9.png)
+
+![](images/packageartifactartifactoryphptodo9.png)
+
+![](images/installingzipforpackageartifact9.png)
+
+![](images/ansibleconfigmgtdeploytodevjob9.png)
+
+![](images/artifactoryplaysiteyml9.png)
+
+![](images/deployingtodevenv9.png)
+
+![](images/deploymentymldeploytodev9.png)
+
+![](images/envsamplephptodomysqlupdate9.png)
+
+![](images/installingzipforpackageartifact9.png)
+
+![](images/packageartifactartifactoryphptodo9.png)
+
+![](images/phpartifactbuild9.png)
+
+![](images/phpartifactbuildplot9.png)
+
+![](images/phpartifactoryshot9.png)
+
+![](images/phplocbuild9.png)
+
+![](images/phplocphptodoinstall9.png)
+
+![](images/phplocphptodoinstall99.png)
+
+![](images/phptodojenkinsfilecodeanalysis9.png)
+
+![](images/phptodoserver9.png)
+
+![](images/phptodounittestbuildafterunittest9.png)
+
+![](images/phptodojenkinsfileupdateafterbuild9.png)
+
+
+
+
