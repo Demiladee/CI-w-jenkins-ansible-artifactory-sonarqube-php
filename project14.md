@@ -152,3 +152,66 @@ pipeline {
 ![](images/jenkinsfilecleanupmain6.png)
 
 ![](images/jenkinsfilecleanuplsvar6.png)
+
+
+### running ansible playbook from jenkins
+
+- installed ansible and its dependencies on jenkins server
+
+- installed ansible plugin on jenkins ui
+
+- added new scripts to jenkinsfile
+
+- updated ansible.cfg with the necessary configurations
+
+- updated necessary environments in the inventory directory
+
+- installed postgresql and nginx role from ansible galaxy
+
+- edited the roles to suit my play
+
+- updated the ansible playbooks/site.yml and staticassignments file
+
+- made necessary configurations to allow smooth running on jenkins and ansible
+
+- ran the play on both feature and main branch
+
+![](images/ansibleinstall7.png)
+
+![](images/ansibleinstalldependencies7.png)
+
+![](images/ansiblepluginjenkins7.png)
+
+![](images/ansiblejenkinsansiblepath7.png)
+
+![](images/ansiblejenkinsdashboardcredentials7.png)
+
+![](images/ansiblejenkinspipelinesyntax7.png)
+
+![](images/ansiblejenkinspipelinesyntax77.png)
+
+![](images/ansiblecfg7.png)
+
+![](images/ansiblegalaxypostgresql7.png)
+
+![](images/ansiblenginxdeafultsmain7.png)
+
+![](images/ansiblestaticassgndbyml7.png)
+
+![](images/ansiblestaticnginx7.png)
+
+![](images/ansibledev7.png)
+
+![](images/ansiblejenkinsfile7.png)
+
+![](images/ansiblejenkinsfile77.png)
+
+![](images/ansibleplaybookssite7.png)
+
+![](images/ansibleplay7.png)
+
+![](images/ansibleplay77.png)
+
+![](images/ansibleplaymain7.png)
+
+![](images/ansibleplaymain77.png)
