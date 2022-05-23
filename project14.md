@@ -456,6 +456,65 @@ stage ('Deploy to Dev Environment') {
 
 ![](images/phptodojenkinsfileupdateafterbuild9.png)
 
+### sonarqube installation
+
+- installed sonarqube
+
+- installed java
+
+- installed postgresql db for sonarqube
+
+- configured sonarqube and open port 9000
+
+![](images/installingsonarqubescanneronjenkins10.png)
+
+![](images/sonarqubescanner10%5D.png)
+
+![](images/sonarqubejenkinsconf10.png)
+
+![](images/phptodosonaqualitygate10.png)
+
+![](images/sonarqualitycodeupdate10.png)
+
+![](images/sonarqubebuildparameterci10.png)
+
+![](images/phptodosonaqualitygate10.png)
+
+![](images/sonarqualitygate10.png)
+
+![](images/sonarqubeviabrowser10.png)
+
+![](images/sonarqubeviabrowser1010.png)
+
+![](images/sonarplaybookssiteyml10.png)
+
+![](images/sonarqubemainymltaskinstallstuff10.png)
+
+![](images/sonarinstallnpmaftersecondfailedtest10.png)
+
+![](images/installxdebugafternpm10.png)
+
+![](images/updatingxdebugfile10.png)
+
+![](images/updatingxdebugfile1010.png)
+
+![](images/confsonarscannerproperties10.png)
+
+![](images/confsonarscannerproperties1010.png)
+
+![](images/sonarqubeplayviaterminal10.png)
+
+![](images/sonarqubeplayviaterminal1010.png)
+
+![](images/sonarqubesetuptasks10.png)
+
+![](images/sonarqubepostgretasksinstallstuff10.png)
+
+![](images/sonarqubesecondtest10.png)
+
+![](images/sonarqubesedondtestgui10.png)
+
+
 
 
 
