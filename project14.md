@@ -514,7 +514,33 @@ stage ('Deploy to Dev Environment') {
 
 ![](images/sonarqubesedondtestgui10.png)
 
+### final
 
+- installed java on slave
+
+- updated bash profile with java
+
+- configured slave node on jenkins
+
+- configured github webhook trigger
+
+![](images/installingjavaonslave11.png)
+
+![](images/vijava11.png)
+
+![](images/vijavaaftjavainstall1.png)
+
+![](images/updatingbashprofilewithjava11.png)
+
+![](images/updatingbashprofilewithjava1111.png)
+
+![](images/confignodesonjenkins11.png)
+
+![](images/nodeonnodes11.png)
+
+![](images/githubwebhook11.png)
+
+![](images/finalgithubwebhooktrigger11.png)
 
 
 
